@@ -122,22 +122,63 @@ $("#drop_create").on("click", function() {
 
 $("#create_new_cancel").on("click", function() {
 	$("#create_new_form, #blackout").removeClass("active");
-	var resName = $('#key').val();
-	var value = $('#value').val();
-	var keyExists = localStorage.getItem(key) !== null;
-
-	if (keyExists) {
-		updateStatusLabel('key already exists, please use update button instead! :D');
-	} else if (key === '') {
-		updateStatusLabel('invalid input!')
-	}else {
-		createEntry(key, value);
-		updateStatusLabel('key created - ' + key);
-	}
-
-	loadLocalStorage();
 });
 
 $("#create_new_submit").on("click", function() {
 	$("#create_new_form, #blackout").removeClass("active");
+	var key = $('#last_name_create').val() + ', ' + $('#first_name_create').val();
+	var value = {};
+	var firstname = $('#first_name_create').val();
+	var lastname = $('#last_name_create').val();
+	var phonenumber = $('#phone_number_create').val();
+	var attendies = $('#attendees').val();
+	var notes = $('#additional_notes').val();
+	var checkedin = $('#checked_in').val();
+	value['First Name'] = firstname;
+	value['Last Name'] = lastname;
+	value['Phone Number'] = phonenumber;
+	value['Attendies'] = attendies;
+	value['Notes'] = notes;
+	value['Checked In'] = checkedin;
+	var keyExists = localStorage.getItem(key) !== null;
+
+		if (keyExists) {
+			updateStatusLabel('key already exists, please use update button instead! :D');
+		} else if (key === '') {
+			updateStatusLabel('invalid input!')
+		}else {
+			createEntry(key, JSON.stringify(value));
+			updateStatusLabel('key created - ' + key);
+		}
+
+		loadLocalStorage();
+
 });
+
+
+/*
+create button:
+
+		var key = $('#last_name_create').val() + ', ' + $('#first_name_create').val();
+		var value = JSON.stringify({
+				firstname = ('#first_name_create').val(),
+				lastname = $('#last_name_create').val(),
+				phonenumber = $('#phone_number_create').val(),
+				attenties = $('#attendees').val(),
+				notes = $('#additional_notes').val(),
+				checkedin = $('#checked_in').val(),
+});
+		var keyExists = localStorage.getItem(key) !== null;
+
+		if (keyExists) {
+			updateStatusLabel('key already exists, please use update button instead! :D');
+		} else if (key === '') {
+			updateStatusLabel('invalid input!')
+		}else {
+			createEntry(key, value);
+			updateStatusLabel('key created - ' + key);
+		}
+
+		loadLocalStorage();
+	});
+*/

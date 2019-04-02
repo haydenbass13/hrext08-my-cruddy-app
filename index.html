@@ -35,10 +35,7 @@
 				<label for="value">Last Name: </label>
 				<input type="text" name="value" id="value" required>
 			</div>
-			<div class="form">
-				<label for="occupants">Occupants: </label>
-				<input stype="text" name="key" id="key" required>
-			</div>
+
 			<div class="form">
 				<button class="button" id="btn-create" type="button">Create</button>
 				<button class="button" id="btn-update" type="button">Update</button>
@@ -71,6 +68,7 @@
 	<form id='create_new_actual_form'>
 		<input type='text' id='first_name_create' placeholder="First Name"><br>
 		<input type='text' id='last_name_create' placeholder="Last Name"><br>
+		<input type='text' id='phone_number_create' placeholder="Phone Number"><br>
 		Additional Attendees:<br>
 		<select id='attendees'>
 			<option value='0'>0</option>
@@ -82,7 +80,7 @@
 		</select><br><br>
 		<input type='text' id='additional_notes' placeholder="Additional Notes/Special Requests (optional)"><br>
 		Checked In:<br>
-		<select>
+		<select id='checked_in'>
 			<option value='false'>No</option>
 			<option value='true'>Yes</option>
 		</select>
@@ -91,6 +89,17 @@
 	</form>
 </div>
 <!-- div list for reservations -->
+<div id='res_wrapper'>
+	<div class='reservation'>
+			<div class ='res_checked_in'></div>
+		<div class='res_first_name'></div>
+		<div class='res_last_name'></div>
+		<div class='res_phone_number'></div>
+
+	</div>
+	<div class='reservation'></div>
+	<div class='reservation'></div>
+</div>
 <!-- rememebr to alphabatize somehow -->
 <div id='res_container'></div>
 
