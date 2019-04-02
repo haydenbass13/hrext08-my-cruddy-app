@@ -174,7 +174,7 @@ button.button {
 	left:28%;
 }
 #res_wrapper{
-	visibility:hidden;
+	visibility:visible;
 	position:fixed;
 	height:100%;
 	width:650px;
@@ -193,34 +193,44 @@ button.button {
 .res_checked_in{
 height:40px;
 width: 40px;
-border-style: solid;
-border-color:blue;
+
 float:left;
+color:white;
+line-height:40px;
+margin-left:5px;
+
+
 
 }
 .res_first_name{
 	height:40px;
 	width:195px;
-	border-style: solid;
-	border-color:white;
+
 	float:left;
 	margin-left: 5px;
+	color:white;
+	line-height:40px;
 }
 .res_last_name{
 	height:40px;
 width: 195px;
-border-style: solid;
-border-color:white;
 float:left;
 margin-left: 5px;
+color:white;
+line-height:40px;
+
+
 }
 .res_phone_number{
 	width:170px;
 	height:40px;
-	border-style: solid;
-border-color:white;
+
 float:left;
 margin-left: 5px;
+color:white;
+line-height:40px;
+
+
 }
 ::-webkit-scrollbar {
 	display: none;

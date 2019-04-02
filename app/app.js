@@ -1,8 +1,25 @@
 var loadLocalStorage = function () {
-	var keys = Object.keys(localStorage)
+	var keys = Object.keys(localStorage);
 	var htmlString = '';
 	for (var i = 0; i < keys.length; i++) {
-		htmlString += `<tr><td>${keys[i]}</td><td>${JSON.parse(localStorage[keys[i]])}</tr></tr>`;
+		var tempobj = JSON.parse(localStorage.getItem(keys[i]));
+		console.log(typeof tempobj)
+		var $reservation = $('<div class = \"reservation\"></div>');
+		var $checkedin = $('<div class=\"res_checked_in\"></div>');
+			$checkedin.text(tempobj['checkedin']);
+			$checkedin.appendTo($reservation)
+		var $firstname = $('<div class=\"res_first_name\"></div>');
+			$firstname.text(tempobj['First Name']);
+			$firstname.appendTo($reservation)
+		var $lastname = $('<div class=\"res_last_name\"></div>');
+			$lastname.text(tempobj['Last Name']);
+			$lastname.appendTo($reservation);
+		var $phonenumber = $('<div class=\"res_phone_number\"></div>');
+			$phonenumber.text(tempobj["Phone Number"]);
+			$phonenumber.appendTo($reservation);
+
+	$reservation.appendTo('#res_wrapper');
+		// htmlString += `<tr><td>${keys[i]}</td><td>${JSON.parse(localStorage[keys[i]])}</tr></tr>`;
 	}
 	$('tbody').html(htmlString)
 };
@@ -139,7 +156,7 @@ $("#create_new_submit").on("click", function() {
 	value['Phone Number'] = phonenumber;
 	value['Attendies'] = attendies;
 	value['Notes'] = notes;
-	value['Checked In'] = checkedin;
+	value['checkedin'] = checkedin;
 	var keyExists = localStorage.getItem(key) !== null;
 
 		if (keyExists) {
@@ -147,7 +164,7 @@ $("#create_new_submit").on("click", function() {
 		} else if (key === '') {
 			updateStatusLabel('invalid input!')
 		}else {
-			createEntry(key, JSON.stringify(value));
+			createEntry(key,value);
 			updateStatusLabel('key created - ' + key);
 		}
 
@@ -156,29 +173,4 @@ $("#create_new_submit").on("click", function() {
 });
 
 
-/*
-create button:
 
-		var key = $('#last_name_create').val() + ', ' + $('#first_name_create').val();
-		var value = JSON.stringify({
-				firstname = ('#first_name_create').val(),
-				lastname = $('#last_name_create').val(),
-				phonenumber = $('#phone_number_create').val(),
-				attenties = $('#attendees').val(),
-				notes = $('#additional_notes').val(),
-				checkedin = $('#checked_in').val(),
-});
-		var keyExists = localStorage.getItem(key) !== null;
-
-		if (keyExists) {
-			updateStatusLabel('key already exists, please use update button instead! :D');
-		} else if (key === '') {
-			updateStatusLabel('invalid input!')
-		}else {
-			createEntry(key, value);
-			updateStatusLabel('key created - ' + key);
-		}
-
-		loadLocalStorage();
-	});
-*/
