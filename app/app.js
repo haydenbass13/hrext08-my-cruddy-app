@@ -2,7 +2,7 @@ var loadLocalStorage = function () {
 	var keys = Object.keys(localStorage)
 	var htmlString = '';
 	for (var i = 0; i < keys.length; i++) {
-		htmlString += `<tr><td>${keys[i]}</td><td>${localStorage[keys[i]]}</tr></tr>`;
+		htmlString += `<tr><td>${keys[i]}</td><td>${JSON.parse(localStorage[keys[i]])}</tr></tr>`;
 	}
 	$('tbody').html(htmlString)
 };
