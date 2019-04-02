@@ -49,9 +49,9 @@ $(document).ready(function () {
 			updateStatusLabel('invalid input!')
 		} else {
 			updateStatusLabel('key doesn\'t exist, please use create button instead! :D');
-		}		
-		
-		loadLocalStorage();		
+		}
+
+		loadLocalStorage();
 	});
 
 	$('#btn-delete').on('click', function(e) {
@@ -69,15 +69,11 @@ $(document).ready(function () {
 		}
 
 		loadLocalStorage();
-	});	
+	});
 
 });
 /*
-
-
-
 When an input element is given a name, that name becomes a property of the owning form element's HTMLFormElement.elements property. That means if you have an input whose name is set to guest and another whose name is hat-size, the following code can be used:
-
 let form = document.querySelector("form");
 let guestName = form.elements.guest;
 let hatSize = form.elements["hat-size"];

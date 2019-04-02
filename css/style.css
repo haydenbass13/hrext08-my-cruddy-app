@@ -1,10 +1,7 @@
 /*
 - [ ] UI/UX considerations (how are we going to use this)
-
 nice contrasting color pallet
 a form that doenst look like its from a circa 2001 webpage
-
-
 advanced content
 state changing styling
 */
@@ -18,7 +15,7 @@ state changing styling
 }
 
 /*
-	TABLE STYLING 
+	TABLE STYLING
 */
 table {
 	width: 400px;
@@ -37,8 +34,8 @@ tfoot {
 }
 
 /*
-	FORM STYLING 
-	TODO: validation checking styling 
+	FORM STYLING
+	TODO: validation checking styling
 */
 form.form {
 }
@@ -60,4 +57,17 @@ label {
 
 button.button {
 	margin-right: 20px;
+}
+#blackout{
+	visibility: hidden;
+	position:fixed;
+	top:0px;
+	left:0px;
+	height:100%;
+	width:100%;
+	background-color: rgba(0,0,0,.7);
+	z-index: 1;
+}
+#blackout.active{
+	visibility: visible;
 }

@@ -14,12 +14,16 @@
 	<div class="container">
 		<form action="" method="" class="form">
 			<div class="form">
-				<label for="key">Enter key: </label>
+				<label for="key">First Name: </label>
 				<input type="text" name="key" id="key" required>
 			</div>
 			<div class="form">
-				<label for="value">Enter value: </label>
+				<label for="value">Last Name: </label>
 				<input type="text" name="value" id="value" required>
+			</div>
+			<div class="form">
+				<label for="occupants">Occupants: </label>
+				<input stype="text" name="key" id="key" required>
 			</div>
 			<div class="form">
 				<button class="button" id="btn-create" type="button">Create</button>
@@ -27,12 +31,15 @@
 				<button class="button" id="btn-delete" type="button">Delete</button>
 			</div>
 			<!-- clear button? -->
-		</form>	
+		</form>
 		<table>
 			<thead>
 				<tr>
-					<th>Key</th>
-					<th>Value</th>
+					<th>Last Name</th>
+					<th>First Name</th>
+					<th>Occupants</th>
+					<th>Checked In</th>
+					<th>Time Checked In</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -44,13 +51,19 @@
 		</table>
 	</div>
 	<div id="statusLabel">Status:</div>
+	<div id='blackout'></div>
+	<!-- popup for delete -->
+<!-- popup for edit existing -->
+	<!-- popup for create new -->
+<!-- div list for reservations -->
+<!-- rememebr to alphabatize somehow -->
+<div id='res_container'></div>
+
 
 	<script src="app/app.js"></script>
   <!--
    table to view data
-
    form for input for the crud operations
-
    corgi gif
    cowbell sound
   -->

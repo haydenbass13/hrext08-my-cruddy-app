@@ -1,0 +1,38 @@
+project scoping:
+
+guest list app
+
+will be able to create, update and delete reservations
+will be able to accept +n people from a dropdown
+will be able to check in
+will show check in time
+
+
+create a nav bar :
+dropdown will have create new
+edit existing
+delete existing
+check in
+
+
+create new will create a popup window:
+input first name
+last name
+additional attendees
+checked in - auto set to no
+special notes:
+create button
+
+edit existing will have a search bars
+search for reservation by first and last name
+will bring up popup window to edit existing (same as popup for create new)
+
+delete existing will bring up search box for first and last name
+clicking a name will bring up reservation with delete button.
+
+check in will have a search box popup
+clicking name will bring up a box that has a check in button
+and a dropdown for attendees checking in with them
+will show checked in on reservation as well as how many checked in with and at what time
+
+home page will show an alphabatized list of attendees- checked in or not
