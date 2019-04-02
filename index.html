@@ -11,6 +11,20 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+		<div class="navbar">
+				<a href="#home">Home</a>
+				<div class="dropdown">
+				<button class="dropbtn" onclick="dropDown()">Reservations
+					<i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content" id="myDropdown">
+					<a id="drop_create">Create New</a>
+					<a href="#">Update Existing</a>
+					<a href="#">Delete Existing</a>
+				</div>
+				</div>
+			</div>
+
 	<div class="container">
 		<form action="" method="" class="form">
 			<div class="form">
@@ -37,9 +51,6 @@
 				<tr>
 					<th>Last Name</th>
 					<th>First Name</th>
-					<th>Occupants</th>
-					<th>Checked In</th>
-					<th>Time Checked In</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -55,6 +66,30 @@
 	<!-- popup for delete -->
 <!-- popup for edit existing -->
 	<!-- popup for create new -->
+
+<div id='create_new_form'>
+	<form id='create_new_actual_form'>
+		<input type='text' id='first_name_create' placeholder="First Name"><br>
+		<input type='text' id='last_name_create' placeholder="Last Name"><br>
+		Additional Attendees:<br>
+		<select id='attendees'>
+			<option value='0'>0</option>
+			<option value='1'>1</option>
+			<option value='2'>2</option>
+			<option value='3'>3</option>
+			<option value='4'>4</option>
+			<option value='5'>5</option>
+		</select><br><br>
+		<input type='text' id='additional_notes' placeholder="Additional Notes/Special Requests (optional)"><br>
+		Checked In:<br>
+		<select>
+			<option value='false'>No</option>
+			<option value='true'>Yes</option>
+		</select>
+		<button type='submit' id="create_new_submit">Create Reservation</button>
+		<button id="create_new_cancel">Cancel</button>
+	</form>
+</div>
 <!-- div list for reservations -->
 <!-- rememebr to alphabatize somehow -->
 <div id='res_container'></div>

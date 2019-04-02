@@ -89,13 +89,13 @@ PAGE CONTENT STUFF
 ////create new entry
 //localStorage.setItem(key, value)
 var createEntry = function(key, value) {
-	return localStorage.setItem(key, value);
+	return localStorage.setItem(key, JSON.stringify(value));
 }
 
 ////Update existing entry
 //localStorage.setItem(key, value)
 var updateEntry = function(key, value) {
-	return localStorage.setItem(key, value);
+	return localStorage.setItem(key, JSON.stringify(value));
 }
 
 ////delete existing entry
@@ -103,3 +103,41 @@ var updateEntry = function(key, value) {
 var removeEntry = function(key) {
 	return localStorage.removeItem(key);
 }
+
+function dropDown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+$("#drop_create").on("click", function() {
+	$("#create_new_form, #blackout").addClass("active");
+});
+
+$("#create_new_cancel").on("click", function() {
+	$("#create_new_form, #blackout").removeClass("active");
+	var resName = $('#key').val();
+	var value = $('#value').val();
+	var keyExists = localStorage.getItem(key) !== null;
+
+	if (keyExists) {
+		updateStatusLabel('key already exists, please use update button instead! :D');
+	} else if (key === '') {
+		updateStatusLabel('invalid input!')
+	}else {
+		createEntry(key, value);
+		updateStatusLabel('key created - ' + key);
+	}
+
+	loadLocalStorage();
+});
+
+$("#create_new_submit").on("click", function() {
+	$("#create_new_form, #blackout").removeClass("active");
+});
