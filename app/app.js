@@ -1,9 +1,8 @@
+
 var loadLocalStorage = function () {
 	var keys = Object.keys(localStorage);
-	var htmlString = '';
 	for (var i = 0; i < keys.length; i++) {
 		var tempobj = JSON.parse(localStorage.getItem(keys[i]));
-		console.log(typeof tempobj)
 		var $reservation = $('<div class = \"reservation\"></div>');
 		var $checkedin = $('<div class=\"res_checked_in\"></div>');
 			$checkedin.text(tempobj['checkedin']);
@@ -19,9 +18,8 @@ var loadLocalStorage = function () {
 			$phonenumber.appendTo($reservation);
 
 	$reservation.appendTo('#res_wrapper');
-		// htmlString += `<tr><td>${keys[i]}</td><td>${JSON.parse(localStorage[keys[i]])}</tr></tr>`;
-	}
-	$('tbody').html(htmlString)
+
+};
 };
 
 var updateStatusLabel = function(message) {
@@ -169,6 +167,7 @@ $("#create_new_submit").on("click", function() {
 		}
 
 		loadLocalStorage();
+		location.reload();
 
 });
 

@@ -11,7 +11,7 @@ state changing styling
 	guide: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 */
 body {
-	background-color: rgb(171, 171, 171);
+	background-color: rgb(21, 21, 21);
 }
 .container {
 	display: flex;
@@ -110,7 +110,7 @@ button.button {
   }
 
   .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
-	background-color: rgb(26, 242, 192);
+	background-color:rgba(26, 242, 192, 0.646);
   }
 
   .dropdown-content {
@@ -178,7 +178,6 @@ button.button {
 	position:fixed;
 	height:100%;
 	width:650px;
-	border-style:solid;
 	top: 70px;
 	z-index: 3;
 	overflow-y: scroll;
@@ -186,7 +185,7 @@ button.button {
 .reservation{
 	width:640px;
 	height:45px;
-	background-color:#333;
+	background-color:rgb(31, 31, 31);
 	margin:5px;
 	box-shadow: 0px 0px 5px 3px  rgb(26, 242, 192);
 }
@@ -234,4 +233,49 @@ line-height:40px;
 }
 ::-webkit-scrollbar {
 	display: none;
+}
+#table_header{
+	top:-50px;
+	height:40px;
+}
+#headerchecked{
+	background-image: url("https://png2.kisspng.com/sh/50a8d25308c33ef8c65bc148668bd70e/L0KzQYm3VMA0N5VBj5H0aYP2gLBuTfNpepDyeZ90ZYmwc7nsgBsudZJ3g599aXzndX76mf1jd50yfARuZX6whLrqi702aZQ4StU8ZUHnRIiAUL4zOWM9SaQAMUG4QoOAVMAzQGc2SasELoDxd1==/kisspng-chroma-key-check-mark-tilde-symbol-green-tick-5ac32c3e1d4770.2128125115227402861199.png");
+	background-size: cover;
+	overflow:wrap;
+	height:40px;
+width: 40px;
+
+float:left;
+color:white;
+line-height:40px;
+margin-left:5px;
+
+
+}
+#headerfirst{
+	height:40px;
+	width:195px;
+
+	float:left;
+	margin-left: 5px;
+	color:white;
+	line-height:40px;
+}
+
+#headerlast{
+	height:40px;
+	width: 195px;
+	float:left;
+	margin-left: 5px;
+	color:white;
+	line-height:40px;
+}
+#headernumber{
+	width:170px;
+	height:40px;
+
+float:left;
+margin-left: 5px;
+color:white;
+line-height:40px;
 }
