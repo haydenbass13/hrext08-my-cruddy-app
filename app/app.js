@@ -165,7 +165,7 @@ $("#checkin_cancel").on("click", function() {
 	$("#checkin_search, #blackout").removeClass("active");
 });
 
-$("#checkin_go").on('click', function(){
+$("#checkin_go").on('click', function checkin(){
 
 	var key = $('#checkin_lastName').val() + ', ' + $('#checkin_firstName').val();
 var keyExists = localStorage.getItem(key) !== null;
@@ -186,6 +186,44 @@ if(keyExists){
 	var cancelbtn = $('<button class=\"res_detail_btn\" id=\"cancel\">Cancel</button>');
 	cancelbtn.appendTo('#reservation_details');
 
+	var namedetail = tempobj["First Name"] + " " + tempobj["Last Name"];
+	var $namedetail = $('<div id= \"res_detail_name\"></div>');
+	$namedetail.text(namedetail);
+	$namedetail.appendTo("#reservation_details");
+
+	var numberdetail = tempobj["Phone Number"];
+	var $numberdetail = $('<div id= \"res_number\"></div>');
+	$numberdetail.text(numberdetail);
+	$numberdetail.appendTo("#reservation_details")
+
+	var notesdetail = tempobj["Notes"];
+	var $notesdetail = $('<div id= \"res_notes\"></div>');
+	$notesdetail.text(notesdetail);
+	$notesdetail.appendTo("#reservation_details")
+	var checkintime = tempobj["checkedintime"] || "Not Checked In Yet";
+	var $checkintime = $('<div id= \"res_checkintime\"></div>');
+	$checkintime.text(checkintime);
+	$checkintime.appendTo("#reservation_details")
+
+	$("#cancel").on('click', function(){
+		$("#reservation_details").removeClass('active');
+	})
+
+	$("#update").on('click', function(){
+		var time = new Date();
+	var value = {};
+	value['First Name'] = tempobj['First Name'];
+	value['Last Name'] = tempobj['Last Name'];
+	value['Phone Number'] = tempobj['Phone Number'];
+	value['Attendies'] = tempobj['Attendies'];
+	value['Notes'] = tempobj['Notes'];
+	value['checkedin'] = "Yes";
+	value['checkedintime'] = time;
+	updateEntry(key, value);
+	location.reload();
+		$("#reservation_details").removeClass('active');
+
+	})
 //show checkedin status
 	if(tempobj['checkedin']=== 'No'){
 		$("#res_detail_checkedin").css('background-image', 'url(\"http://www.pngall.com/wp-content/uploads/2016/04/Red-Cross-Mark-Download-PNG.png\")');
@@ -195,6 +233,8 @@ else alert('no reservation found')
 
 $("#checkin_search, #blackout").removeClass("active");
 })
+
+
 
 
 

@@ -315,7 +315,7 @@ height:65px;
 border-style:solid;
 border-color:white;
 position:absolute;
-top: 195px;
+top: 215px;
 left:50%;
 transform:translate(-50%);
 }
@@ -346,7 +346,7 @@ transform:translate(-50%);
 	border-style:solid;
 	border-color:white;
 	position:absolute;
-	top: 315px;
+	top: 160px;
 	left:50%;
 	transform:translate(-50%);
 }
@@ -374,6 +374,7 @@ transform:translate(-50%);
 
 	top:616px;
 	left:30px;
+	z-index: 7;
 }
 #update{
 
@@ -422,6 +423,16 @@ transform:translate(-50%);
 #checkin_go{
 	position:absolute;
 	left:73px;
+}
+#res_number{
+	width:275px;
+height:40px;
+border-style:solid;
+border-color:white;
+position:absolute;
+top: 315px;
+left:50%;
+transform:translate(-50%);
 }
 
 
