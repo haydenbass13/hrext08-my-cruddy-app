@@ -396,6 +396,31 @@ transform:translate(-50%);
 	visibility: visible;
 }
 
+#checkin_search{
+	visibility: hidden;
+	border-style:solid;
+	border-color:white;
+	position:fixed;
+	text-align: center;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+	z-index: 5;
+	height:80px;
+	width:140px;
+}
+#checkin_search.active{
+	visibility:visible;
+}
+#checkin_cancel{
+	position:absolute;
+	left:15px;
+}
+#checkin_go{
+	position:absolute;
+	left:73px;
+}
+
 
 /* <div id="res_detail_name"></div>
 	<div id='res_detail_checkedin'></div>

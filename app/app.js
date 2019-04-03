@@ -1,35 +1,35 @@
-
-var loadLocalStorage = function () {
+var loadLocalStorage = function() {
 	var keys = Object.keys(localStorage);
 	for (var i = 0; i < keys.length; i++) {
-		var tempobj = JSON.parse(localStorage.getItem(keys[i]));
-		var $reservation = $('<div class = \"reservation\"></div>');
-		var $checkedin = $('<div class=\"res_checked_in\"></div>');
+			var tempobj = JSON.parse(localStorage.getItem(keys[i]));
+			var $reservation = $('<div class = \"reservation\"></div>');
+			var $checkedin = $('<div class=\"res_checked_in\"></div>');
 			$checkedin.text(tempobj['checkedin']);
 			$checkedin.appendTo($reservation)
-		var $firstname = $('<div class=\"res_first_name\"></div>');
+			var $firstname = $('<div class=\"res_first_name\"></div>');
 			$firstname.text(tempobj['First Name']);
 			$firstname.appendTo($reservation)
-		var $lastname = $('<div class=\"res_last_name\"></div>');
+			var $lastname = $('<div class=\"res_last_name\"></div>');
 			$lastname.text(tempobj['Last Name']);
 			$lastname.appendTo($reservation);
-		var $phonenumber = $('<div class=\"res_phone_number\"></div>');
+			var $phonenumber = $('<div class=\"res_phone_number\"></div>');
 			$phonenumber.text(tempobj["Phone Number"]);
 			$phonenumber.appendTo($reservation);
-	$reservation.attr('title', keys[i]);
-	$reservation.appendTo('#res_wrapper');
+			$reservation.attr('title', keys[i]);
+			$reservation.appendTo('#res_wrapper');
 
-};
+	}
+	;
 };
 
 var alert = function(message) {
 	$('#statusLabel').text('Status: ' + message);
 }
 
- //jQuery document ready initialization stuff
- ////button and form event handlers
- // logic for determining action probably needs to go in the event handler
-$(document).ready(function () {
+//jQuery document ready initialization stuff
+////button and form event handlers
+// logic for determining action probably needs to go in the event handler
+$(document).ready(function() {
 	loadLocalStorage();
 
 	// $('#btn-create').on('click', function(e) {
@@ -48,55 +48,6 @@ $(document).ready(function () {
 
 	// 	loadLocalStorage();
 	// });
-
-	$('#btn-update').on('click', function(e) {
-		var key = $('#last_name_create').val() + ', ' + $('#first_name_create').val();
-		var value = {};
-		var firstname = $('#first_name_create').val();
-		var lastname = $('#last_name_create').val();
-		var phonenumber = $('#phone_number_create').val();
-		var attendies = $('#attendees').val();
-		var notes = $('#additional_notes').val();
-		var checkedin = $('#checked_in').val();
-		value['First Name'] = firstname;
-		value['Last Name'] = lastname;
-		value['Phone Number'] = phonenumber;
-		value['Attendies'] = attendies;
-		value['Notes'] = notes;
-		value['checkedin'] = checkedin;
-		var existingValue = localStorage.getItem(key)
-		var keyExists = existingValue !== null;
-
-		if (value === existingValue) {
-			alert('key not updated - that value already exists silly! xD')
-		} else if (keyExists) {
-			updateEntry(key, value);
-			alert('key updated - ' + key);
-		} else if (key === '') {
-			alert('invalid input!')
-		} else {
-			alert('key doesn\'t exist, please use create button instead! :D');
-		}
-		location.reload();
-
-	});
-
-	$('#btn-delete').on('click', function(e) {
-		var key = $('#delete_lastName').val() + ', ' + $('#delete_firstName').val();
-
-		var keyExists = localStorage.getItem(key) !== null;
-
-		if (keyExists) {
-			removeEntry(key);
-			alert('key removed - ' + key);
-		} else if (key === '') {
-			alert('invalid input!')
-		} else {
-			alert('key doesn\'t exist, nothing removed. :|');
-		}
-		location.reload();
-
-	});
 
 });
 /*
@@ -131,63 +82,19 @@ var removeEntry = function(key) {
 	return localStorage.removeItem(key);
 }
 
+//dropdown button in nav bar functionality
 function dropDown() {
-  document.getElementById("myDropdown").classList.toggle("show");
+	document.getElementById("myDropdown").classList.toggle("show");
 }
-
+//clicking outside dropdown to close it
 window.onclick = function(e) {
-  if (!e.target.matches('.dropbtn')) {
-  var myDropdown = document.getElementById("myDropdown");
-    if (myDropdown.classList.contains('show')) {
-      myDropdown.classList.remove('show');
-    }
-  }
+	if (!e.target.matches('.dropbtn')) {
+			var myDropdown = document.getElementById("myDropdown");
+			if (myDropdown.classList.contains('show')) {
+					myDropdown.classList.remove('show');
+			}
+	}
 }
-$("#drop_create").on("click", function() {
-	$("#create_new_form, #blackout").addClass("active");
-});
-
-$("#create_new_cancel").on("click", function() {
-	$("#create_new_form, #blackout").removeClass("active");
-});
-
-$("#create_new_submit").on("click", function() {
-
-	var key = $('#last_name_create').val() + ', ' + $('#first_name_create').val();
-
-	var keyExists = localStorage.getItem(key) !== null;
-
-		if (keyExists) {
-			alert('key already exists, please use update button instead! :D');
-		} else if (key === '') {
-			console.log('invalid input!')
-		}else {
-			var value = {};
-				var firstname = $('#first_name_create').val();
-				var lastname = $('#last_name_create').val();
-				var phonenumber = $('#phone_number_create').val();
-				var attendies = $('#attendees').val();
-				var notes = $('#additional_notes').val();
-				var checkedin = $('#checked_in').val();
-				value['First Name'] = firstname;
-				value['Last Name'] = lastname;
-				value['Phone Number'] = phonenumber;
-				value['Attendies'] = attendies;
-				value['Notes'] = notes;
-				value['checkedin'] = checkedin;
-			createEntry(key,value);
-			console.log('key created - ' + key);
-			loadLocalStorage();
-			location.reload();
-		}
-		$("#create_new_form, #blackout").removeClass("active");
-
-
-});
-
-
-
-
 
 // deleting reserations
 $("#drop_delete").on("click", function() {
@@ -197,4 +104,106 @@ $("#delete_cancel").on("click", function() {
 	$("#delete_res, #blackout").removeClass("active");
 });
 
+$('#btn-delete').on('click', function(e) {
+	var key = $('#delete_lastName').val() + ', ' + $('#delete_firstName').val();
 
+	var keyExists = localStorage.getItem(key) !== null;
+
+	if (keyExists) {
+			removeEntry(key);
+			alert('key removed - ' + key);
+	} else if (key === '') {
+			alert('invalid input!')
+	} else {
+			alert('key doesn\'t exist, nothing removed. :|');
+	}
+	location.reload();
+
+});
+
+// creating reservations
+
+// dropdown click
+$("#drop_create").on("click", function() {
+	$("#create_new_form, #blackout").addClass("active");
+});
+//cancel button within create new
+$("#create_new_cancel").on("click", function() {
+	$("#create_new_form, #blackout").removeClass("active");
+});
+//submit reservation information form
+$("#create_new_submit").on("click", function() {
+	$("#create_new_form, #blackout").removeClass("active");
+	var key = $('#last_name_create').val() + ', ' + $('#first_name_create').val();
+	var keyExists = localStorage.getItem(key) !== null;
+	var value = {};
+	var firstname = $('#first_name_create').val();
+	var lastname = $('#last_name_create').val();
+	var phonenumber = $('#phone_number_create').val();
+	var attendies = $('#attendees').val();
+	var notes = $('#additional_notes').val();
+	var checkedin = $('#checked_in').val();
+	value['First Name'] = firstname;
+	value['Last Name'] = lastname;
+	value['Phone Number'] = phonenumber;
+	value['Attendies'] = attendies;
+	value['Notes'] = notes;
+	value['checkedin'] = checkedin;
+	createEntry(key, value);
+	console.log('key created - ' + key);
+	loadLocalStorage();
+	location.reload();
+});
+
+
+//checkingin/updating
+$("#drop_checkin").on("click", function() {
+	$("#checkin_search, #blackout").addClass("active");
+});
+
+$("#checkin_cancel").on("click", function() {
+	$("#checkin_search, #blackout").removeClass("active");
+});
+
+$("#checkin_search").on('click', function(){
+	var key = $('#checkin_lastName').val() + ', ' + $('#checkin_firstName').val();
+
+})
+
+
+
+
+
+
+//may or may not use this code for update.
+// $('#btn-update').on('click', function(e) {
+// 	var key = $('#last_name_create').val() + ', ' + $('#first_name_create').val();
+// 	var value = {};
+// 	var firstname = $('#first_name_create').val();
+// 	var lastname = $('#last_name_create').val();
+// 	var phonenumber = $('#phone_number_create').val();
+// 	var attendies = $('#attendees').val();
+// 	var notes = $('#additional_notes').val();
+// 	var checkedin = $('#checked_in').val();
+// 	value['First Name'] = firstname;
+// 	value['Last Name'] = lastname;
+// 	value['Phone Number'] = phonenumber;
+// 	value['Attendies'] = attendies;
+// 	value['Notes'] = notes;
+// 	value['checkedin'] = checkedin;
+// 	var existingValue = localStorage.getItem(key)
+// 	var keyExists = existingValue !== null;
+
+// 	if (value === existingValue) {
+// 		alert('key not updated - that value already exists silly! xD')
+// 	} else if (keyExists) {
+// 		updateEntry(key, value);
+// 		alert('key updated - ' + key);
+// 	} else if (key === '') {
+// 		alert('invalid input!')
+// 	} else {
+// 		alert('key doesn\'t exist, please use create button instead! :D');
+// 	}
+// 	location.reload();
+
+// });
