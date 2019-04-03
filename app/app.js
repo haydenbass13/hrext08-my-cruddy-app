@@ -16,13 +16,13 @@ var loadLocalStorage = function () {
 		var $phonenumber = $('<div class=\"res_phone_number\"></div>');
 			$phonenumber.text(tempobj["Phone Number"]);
 			$phonenumber.appendTo($reservation);
-
+	$reservation.attr('title', keys[i]);
 	$reservation.appendTo('#res_wrapper');
 
 };
 };
 
-var updateStatusLabel = function(message) {
+var alert = function(message) {
 	$('#statusLabel').text('Status: ' + message);
 }
 
@@ -32,58 +32,70 @@ var updateStatusLabel = function(message) {
 $(document).ready(function () {
 	loadLocalStorage();
 
-	$('#btn-create').on('click', function(e) {
-		var key = $('#key').val();
-		var value = $('#value').val();
-		var keyExists = localStorage.getItem(key) !== null;
+	// $('#btn-create').on('click', function(e) {
+	// 	var key = $('#key').val();
+	// 	var value = $('#value').val();
+	// 	var keyExists = localStorage.getItem(key) !== null;
 
-		if (keyExists) {
-			updateStatusLabel('key already exists, please use update button instead! :D');
-		} else if (key === '') {
-			updateStatusLabel('invalid input!')
-		}else {
-			createEntry(key, value);
-			updateStatusLabel('key created - ' + key);
-		}
+	// 	if (keyExists) {
+	// 		alert('key already exists, please use update button instead! :D');
+	// 	} else if (key === '') {
+	// 		alert('invalid input!')
+	// 	}else {
+	// 		createEntry(key, value);
+	// 		alert('key created - ' + key);
+	// 	}
 
-		loadLocalStorage();
-	});
+	// 	loadLocalStorage();
+	// });
 
 	$('#btn-update').on('click', function(e) {
-		var key = $('#key').val();
-		var value = $('#value').val();
+		var key = $('#last_name_create').val() + ', ' + $('#first_name_create').val();
+		var value = {};
+		var firstname = $('#first_name_create').val();
+		var lastname = $('#last_name_create').val();
+		var phonenumber = $('#phone_number_create').val();
+		var attendies = $('#attendees').val();
+		var notes = $('#additional_notes').val();
+		var checkedin = $('#checked_in').val();
+		value['First Name'] = firstname;
+		value['Last Name'] = lastname;
+		value['Phone Number'] = phonenumber;
+		value['Attendies'] = attendies;
+		value['Notes'] = notes;
+		value['checkedin'] = checkedin;
 		var existingValue = localStorage.getItem(key)
 		var keyExists = existingValue !== null;
 
 		if (value === existingValue) {
-			updateStatusLabel('key not updated - that value already exists silly! xD')
+			alert('key not updated - that value already exists silly! xD')
 		} else if (keyExists) {
 			updateEntry(key, value);
-			updateStatusLabel('key updated - ' + key);
+			alert('key updated - ' + key);
 		} else if (key === '') {
-			updateStatusLabel('invalid input!')
+			alert('invalid input!')
 		} else {
-			updateStatusLabel('key doesn\'t exist, please use create button instead! :D');
+			alert('key doesn\'t exist, please use create button instead! :D');
 		}
+		location.reload();
 
-		loadLocalStorage();
 	});
 
 	$('#btn-delete').on('click', function(e) {
-		var key = $('#key').val();
-		var value = $('#value').val();
+		var key = $('#delete_lastName').val() + ', ' + $('#delete_firstName').val();
+
 		var keyExists = localStorage.getItem(key) !== null;
 
 		if (keyExists) {
 			removeEntry(key);
-			updateStatusLabel('key removed - ' + key);
+			alert('key removed - ' + key);
 		} else if (key === '') {
-			updateStatusLabel('invalid input!')
+			alert('invalid input!')
 		} else {
-			updateStatusLabel('key doesn\'t exist, nothing removed. :|');
+			alert('key doesn\'t exist, nothing removed. :|');
 		}
+		location.reload();
 
-		loadLocalStorage();
 	});
 
 });
@@ -140,36 +152,49 @@ $("#create_new_cancel").on("click", function() {
 });
 
 $("#create_new_submit").on("click", function() {
-	$("#create_new_form, #blackout").removeClass("active");
+
 	var key = $('#last_name_create').val() + ', ' + $('#first_name_create').val();
-	var value = {};
-	var firstname = $('#first_name_create').val();
-	var lastname = $('#last_name_create').val();
-	var phonenumber = $('#phone_number_create').val();
-	var attendies = $('#attendees').val();
-	var notes = $('#additional_notes').val();
-	var checkedin = $('#checked_in').val();
-	value['First Name'] = firstname;
-	value['Last Name'] = lastname;
-	value['Phone Number'] = phonenumber;
-	value['Attendies'] = attendies;
-	value['Notes'] = notes;
-	value['checkedin'] = checkedin;
+
 	var keyExists = localStorage.getItem(key) !== null;
 
 		if (keyExists) {
-			updateStatusLabel('key already exists, please use update button instead! :D');
+			alert('key already exists, please use update button instead! :D');
 		} else if (key === '') {
-			updateStatusLabel('invalid input!')
+			console.log('invalid input!')
 		}else {
+			var value = {};
+				var firstname = $('#first_name_create').val();
+				var lastname = $('#last_name_create').val();
+				var phonenumber = $('#phone_number_create').val();
+				var attendies = $('#attendees').val();
+				var notes = $('#additional_notes').val();
+				var checkedin = $('#checked_in').val();
+				value['First Name'] = firstname;
+				value['Last Name'] = lastname;
+				value['Phone Number'] = phonenumber;
+				value['Attendies'] = attendies;
+				value['Notes'] = notes;
+				value['checkedin'] = checkedin;
 			createEntry(key,value);
-			updateStatusLabel('key created - ' + key);
+			console.log('key created - ' + key);
+			loadLocalStorage();
+			location.reload();
 		}
+		$("#create_new_form, #blackout").removeClass("active");
 
-		loadLocalStorage();
-		location.reload();
 
 });
 
+
+
+
+
+// deleting reserations
+$("#drop_delete").on("click", function() {
+	$("#delete_res, #blackout").addClass("active");
+});
+$("#delete_cancel").on("click", function() {
+	$("#delete_res, #blackout").removeClass("active");
+});
 
 

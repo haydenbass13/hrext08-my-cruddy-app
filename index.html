@@ -19,8 +19,8 @@
 				</button>
 				<div class="dropdown-content" id="myDropdown">
 					<a id="drop_create">Create New</a>
-					<a href="#">Update Existing</a>
-					<a href="#">Delete Existing</a>
+					<a id="drop_checkin">Check In</a>
+					<a id="drop_delete">Delete Existing</a>
 				</div>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 			<div class="form">
 				<button class="button" id="btn-create" type="button">Create</button>
 				<button class="button" id="btn-update" type="button">Update</button>
-				<button class="button" id="btn-delete" type="button">Delete</button>
+
 			</div>
 	clear button? -->
 		<!-- </form> -->
@@ -83,9 +83,11 @@
 		<select id='checked_in'>
 			<option value='No'>No</option>
 			<option value='Yes'>Yes</option>
-		</select>
+		</select><br>
+		<button id="btn-update" type="button">Update</button>
 		<button type='submit' id="create_new_submit">Create Reservation</button>
-		<button id="create_new_cancel">Cancel</button>
+		<button id="create_new_cancel">X</button>
+
 	</form>
 </div>
 <!-- div list for reservations -->
@@ -108,6 +110,16 @@
 	<button class="res_detail_btn" id="update">Update</button>
 	<button class="res_detail_btn" id="cancel">Cancel</button>
 </div>
+</div>
+
+<div id='delete_res'>
+	<form id='delete_search'>
+		<input type='text' id='delete_firstName' placeholder="First Name"><br>
+		<input type='text' id='delete_lastName' placeholder="Last Name"><br>
+		<button class="button" id="btn-delete" type="button">Delete</button>
+		<button class="button" id="delete_cancel" type="button">Cancel</button>
+
+	</form>
 </div>
 
 
