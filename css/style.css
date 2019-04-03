@@ -239,7 +239,7 @@ line-height:40px;
 	height:40px;
 }
 #headerchecked{
-	background-image: url("https://png2.kisspng.com/sh/50a8d25308c33ef8c65bc148668bd70e/L0KzQYm3VMA0N5VBj5H0aYP2gLBuTfNpepDyeZ90ZYmwc7nsgBsudZJ3g599aXzndX76mf1jd50yfARuZX6whLrqi702aZQ4StU8ZUHnRIiAUL4zOWM9SaQAMUG4QoOAVMAzQGc2SasELoDxd1==/kisspng-chroma-key-check-mark-tilde-symbol-green-tick-5ac32c3e1d4770.2128125115227402861199.png");
+	background-image: url("https://png2.kisspng.com/sh/91d2431b5b4e7a05441e7286f9cfa702/L0KzQYm3VMA1N6p2fZH0aYP2gLBuTfNpbZRwRd9qcnuwc7F0kQV1baMygdV4boOwc73wkL1ieqUyfARuZX6whLrqi702aZQ6S6QDZHO1SILrUL4zO2g3T6ICOUG4QoOBV8I6P2Q8UagCLoDxd1==/kisspng-check-mark-computer-icons-clip-art-green-tick-5ac5328dc281d0.2372707915228729737967.png");
 	background-size: cover;
 	overflow:wrap;
 	height:40px;
@@ -281,10 +281,86 @@ line-height:40px;
 }
 #reservation_details{
 	position:absolute;
-	left: 690px;
-	height:700px;
-	width:400px;
-	top:70px;
+	left: 663px;
+	height:665px;
+	width:300px;
+	top:110px;
 	border-style: solid;
 	border-color:white;
+	color:white;
 }
+#res_detail_name{
+width:275px;
+height:65px;
+border-style:solid;
+border-color:white;
+position:absolute;
+top: 195px;
+left:50%;
+transform:translate(-50%);
+}
+#res_detail_checkedin{
+	width:135px;
+	height:135px;
+	border-style:solid;
+	border-color:white;
+	position:absolute;
+	top: 10px;
+	left:10px
+}
+#res_attenendants{
+	width:135px;
+	height:135px;
+	border-style:solid;
+	border-color:white;
+	position:absolute;
+	top: 10px;
+	left:150px
+}
+#res_checkintime{
+	width:275px;
+	height:30px;
+	border-style:solid;
+	border-color:white;
+	position:absolute;
+	top: 315px;
+	left:50%;
+	transform:translate(-50%);
+}
+#res_notes{
+	width:275px;
+	height:200px;
+	border-style:solid;
+	border-color:white;
+	position:absolute;
+	top: 400px;
+	left:50%;
+	transform:translate(-50%)
+}
+.res_detail_btn{
+	height:40px;
+	width:120px;
+	position:absolute;
+	color:white;
+	background-color: rgba(0, 186, 127, 0.591);
+	border-style:none;
+	font-size: 20px;
+	font-family: inherit;
+}
+#cancel{
+
+	top:616px;
+	left:30px;
+}
+#update{
+
+	top:616px;
+	left:155px;
+}
+
+
+/* <div id="res_detail_name"></div>
+	<div id='res_detail_checkedin'></div>
+	<div id="res_attenties"></div>
+	<div id="res_checkintime"></div>
+	<div id="res_notes"></div> */
