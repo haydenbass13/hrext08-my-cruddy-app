@@ -326,7 +326,9 @@ transform:translate(-50%);
 	border-color:white;
 	position:absolute;
 	top: 10px;
-	left:10px
+	left:10px;
+	background-image: url("https://png2.kisspng.com/sh/91d2431b5b4e7a05441e7286f9cfa702/L0KzQYm3VMA1N6p2fZH0aYP2gLBuTfNpbZRwRd9qcnuwc7F0kQV1baMygdV4boOwc73wkL1ieqUyfARuZX6whLrqi702aZQ6S6QDZHO1SILrUL4zO2g3T6ICOUG4QoOBV8I6P2Q8UagCLoDxd1==/kisspng-check-mark-computer-icons-clip-art-green-tick-5ac5328dc281d0.2372707915228729737967.png");
+	background-size:cover;
 }
 #res_attenendants{
 	width:135px;
@@ -335,7 +337,8 @@ transform:translate(-50%);
 	border-color:white;
 	position:absolute;
 	top: 10px;
-	left:150px
+	left:150px;
+	font-size: 115px;
 }
 #res_checkintime{
 	width:275px;

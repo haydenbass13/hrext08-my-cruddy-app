@@ -22,9 +22,9 @@ var loadLocalStorage = function() {
 	;
 };
 
-var alert = function(message) {
-	$('#statusLabel').text('Status: ' + message);
-}
+// var alert = function(message) {
+// 	$('#statusLabel').text('Status: ' + message);
+// }
 
 //jQuery document ready initialization stuff
 ////button and form event handlers
@@ -165,9 +165,23 @@ $("#checkin_cancel").on("click", function() {
 	$("#checkin_search, #blackout").removeClass("active");
 });
 
-$("#checkin_search").on('click', function(){
+$("#checkin_go").on('click', function(){
 	var key = $('#checkin_lastName').val() + ', ' + $('#checkin_firstName').val();
+var keyExists = localStorage.getItem(key) !== null;
+if(keyExists){
+	$("#reservation_details").addClass('active');
+	var tempobj = JSON.parse(localStorage.getItem(key));
+	var attendies = tempobj["Attendies"];
+	var $attendies = $('<div id= \"res_attenendants\"></div>');
+	$attendies.text("+" + attendies);
+	$attendies.appendTo('#reservation_details');
+	console.log(tempobj['checkedin'])
+	if(tempobj['checkedin']=== 'No'){
+		$("#res_detail_checkedin").css('background-image', 'url(\"http://www.pngall.com/wp-content/uploads/2016/04/Red-Cross-Mark-Download-PNG.png\")');
+	}
+} else alert('no reservation found')
 
+$("#checkin_search, #blackout").removeClass("active");
 })
 
 
