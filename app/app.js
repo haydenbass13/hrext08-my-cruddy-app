@@ -31,6 +31,7 @@ var loadLocalStorage = function() {
 // logic for determining action probably needs to go in the event handler
 $(document).ready(function() {
 	loadLocalStorage();
+	clickfunc();
 
 	// $('#btn-create').on('click', function(e) {
 	// 	var key = $('#key').val();
@@ -249,7 +250,74 @@ else alert('no reservation found')
 $("#checkin_search, #blackout").removeClass("active");
 })
 
+var clickfunc = function(){
+	$(".reservation").on('click', function(){
+		$('#reservation_details').empty();
+		$("#reservation_details").addClass('active');
+		var key = $(this).attr('title');
+		var tempobj = JSON.parse(localStorage.getItem(key));
+		var attendies = tempobj["Attendies"];
+		var $attendies = $('<div id= \"res_attenendants\"></div>');
+		$attendies.text("+" + attendies);
+		$attendies.appendTo('#reservation_details');
+		var $checkedin = $('<div id= \"res_detail_checkedin\"></div>');
+		$checkedin.appendTo('#reservation_details')
 
+	//add buttons
+		var updatebtn = $('<button class=\"res_detail_btn\" id=\"update\">Check In</button>');
+		updatebtn.appendTo('#reservation_details');
+		var cancelbtn = $('<button class=\"res_detail_btn\" id=\"cancel\">Cancel</button>');
+		cancelbtn.appendTo('#reservation_details');
+
+		var namedetail = tempobj["First Name"] + " " + tempobj["Last Name"];
+		var $namedetail = $('<div id= \"res_detail_name\"></div>');
+		$namedetail.text(namedetail);
+		$namedetail.appendTo("#reservation_details");
+
+		var numberdetail = tempobj["Phone Number"];
+		var $numberdetail = $('<div id= \"res_number\"></div>');
+		$numberdetail.text(numberdetail);
+		$numberdetail.appendTo("#reservation_details")
+
+		var notesdetail = tempobj["Notes"];
+		var $notesdetail = $('<div id= \"res_notes\"></div>');
+		$notesdetail.text(notesdetail);
+		$notesdetail.appendTo("#reservation_details")
+		var checkintime = tempobj["checkedintime"] || "Not Checked In Yet";
+		var $checkintime = $('<div id= \"res_checkintime\"></div>');
+		$checkintime.text(checkintime);
+		$checkintime.appendTo("#reservation_details")
+		$("#cancel").on('click', function(){
+			$("#reservation_details").removeClass('active');
+		})
+
+		$("#update").on('click', function(){
+			if(tempobj['checkedin'] === 'Yes'){
+				alert("Already Checked In at " + tempobj['checkedintime']);
+			} else if (tempobj['checkedin']==='No'){
+			var date = new Date();
+			var hour = date.getHours();
+			var min = date.getMinutes();
+			var sec = date.getSeconds();
+			var timelong = date + hour + min + sec;
+			var time = timelong.slice(0,24);
+		var value = {};
+		value['First Name'] = tempobj['First Name'];
+		value['Last Name'] = tempobj['Last Name'];
+		value['Phone Number'] = tempobj['Phone Number'];
+		value['Attendies'] = tempobj['Attendies'];
+		value['Notes'] = tempobj['Notes'];
+		value['checkedin'] = "Yes";
+		value['checkedintime'] = time;
+		updateEntry(key, value);
+		location.reload();
+			$("#reservation_details").removeClass('active');
+			}
+		})
+});
+}
+
+clickfunc();
 
 
 
