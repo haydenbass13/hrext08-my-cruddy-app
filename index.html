@@ -19,7 +19,7 @@
 				</button>
 				<div class="dropdown-content" id="myDropdown">
 					<a id="drop_create">Create New</a>
-					<a id="drop_checkin">Check In</a>
+					<a id="drop_checkin">Search Existing</a>
 					<a id="drop_delete">Delete Existing</a>
 				</div>
 				</div>
@@ -66,9 +66,9 @@
 <div id="big_container">
 <div id='create_new_form'>
 	<form id='create_new_actual_form'>
-		<input type='text' id='first_name_create' placeholder="First Name"><br>
-		<input type='text' id='last_name_create' placeholder="Last Name"><br>
-		<input type='text' id='phone_number_create' placeholder="Phone Number"><br>
+		<input type='text' class='createinput' id='first_name_create' placeholder="First Name"><br>
+		<input type='text' class='createinput' id='last_name_create' placeholder="Last Name"><br>
+		<input type='text' class='createinput' id='phone_number_create' placeholder="Phone Number"><br>
 		Additional Attendees:<br>
 		<select id='attendees'>
 			<option value='0'>0</option>
@@ -78,13 +78,13 @@
 			<option value='4'>4</option>
 			<option value='5'>5</option>
 		</select><br><br>
-		<input type='text' id='additional_notes' placeholder="Additional Notes/Special Requests (optional)"><br>
+		<input type='text' class='createinput' id='additional_notes' placeholder="Additional Notes/Special Requests (optional)"><br><br>
 		Checked In:<br>
 		<select id='checked_in'>
 			<option value='No'>No</option>
 			<option value='Yes'>Yes</option>
 		</select><br>
-		<button id="btn-update" type="button">Update</button>
+		<!-- <button id="btn-update" type="button">Update</button> -->
 		<button type='submit' id="create_new_submit">Create Reservation</button>
 		<button id="create_new_cancel">X</button>
 

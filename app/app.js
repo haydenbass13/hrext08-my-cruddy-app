@@ -111,11 +111,11 @@ $('#btn-delete').on('click', function(e) {
 
 	if (keyExists) {
 			removeEntry(key);
-			alert('key removed - ' + key);
+			alert('Reservation Deleted : ' + key);
 	} else if (key === '') {
-			alert('invalid input!')
+			alert('Reservation Not Found')
 	} else {
-			alert('key doesn\'t exist, nothing removed. :|');
+			alert('Reservation Not Found');
 	}
 	location.reload();
 
@@ -133,10 +133,11 @@ $("#create_new_cancel").on("click", function() {
 });
 //submit reservation information form
 $("#create_new_submit").on("click", function() {
-	$("#create_new_form, #blackout").removeClass("active");
+
 	var key = $('#last_name_create').val() + ', ' + $('#first_name_create').val();
 	var keyExists = localStorage.getItem(key) !== null;
-	var value = {};
+	if(!keyExists){
+		var value = {};
 	var firstname = $('#first_name_create').val();
 	var lastname = $('#last_name_create').val();
 	var phonenumber = $('#phone_number_create').val();
@@ -149,10 +150,15 @@ $("#create_new_submit").on("click", function() {
 	value['Attendies'] = attendies;
 	value['Notes'] = notes;
 	value['checkedin'] = checkedin;
+	if(phonenumber.length === 10){
 	createEntry(key, value);
-	console.log('key created - ' + key);
+	alert("Reservation Created : " + key)
 	loadLocalStorage();
 	location.reload();
+	}else {alert('Invalid Phone Number')}
+	} else {
+		alert("Reservation Already Exists");
+	}
 });
 
 
@@ -210,7 +216,15 @@ if(keyExists){
 	})
 
 	$("#update").on('click', function(){
-		var time = new Date();
+		if(tempobj['checkedin'] === 'Yes'){
+			alert("Already Checked In at " + tempobj['checkedintime']);
+		} else if (tempobj['checkedin']==='No'){
+		var date = new Date();
+		var hour = date.getHours();
+		var min = date.getMinutes();
+		var sec = date.getSeconds();
+		var timelong = date + hour + min + sec;
+		var time = timelong.slice(0,24);
 	var value = {};
 	value['First Name'] = tempobj['First Name'];
 	value['Last Name'] = tempobj['Last Name'];
@@ -222,8 +236,9 @@ if(keyExists){
 	updateEntry(key, value);
 	location.reload();
 		$("#reservation_details").removeClass('active');
-
+		}
 	})
+
 //show checkedin status
 	if(tempobj['checkedin']=== 'No'){
 		$("#res_detail_checkedin").css('background-image', 'url(\"http://www.pngall.com/wp-content/uploads/2016/04/Red-Cross-Mark-Download-PNG.png\")');
