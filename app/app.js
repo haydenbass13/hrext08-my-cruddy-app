@@ -263,6 +263,10 @@ var clickfunc = function(){
 		var $checkedin = $('<div id= \"res_detail_checkedin\"></div>');
 		$checkedin.appendTo('#reservation_details')
 
+		if(tempobj['checkedin']=== 'No'){
+			$("#res_detail_checkedin").css('background-image', 'url(\"http://www.pngall.com/wp-content/uploads/2016/04/Red-Cross-Mark-Download-PNG.png\")')
+		}
+
 	//add buttons
 		var updatebtn = $('<button class=\"res_detail_btn\" id=\"update\">Check In</button>');
 		updatebtn.appendTo('#reservation_details');

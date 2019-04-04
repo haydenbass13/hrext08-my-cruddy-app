@@ -151,10 +151,10 @@ button.button {
 	  left: 50%;
 	  top: 50%;
 	  transform: translate(-50%, -50%);
-	  width:250px;
-	  height: 250px;
+	  width:345px;
+	  height: 350px;
 	  color:white;
-	  background-color: rgba(73, 84, 96, 0.488);
+	  background-color: rgba(124, 134, 145, 0.788);;
 	  display: flex;
 	  justify-content: center;
 	  vertical-align: middle;
@@ -164,20 +164,40 @@ button.button {
 
   }
 #create_new_submit{
+	height:40px;
+	width:120px;
 	position:absolute;
-	top:90%;
-	left: 50%;
+	color:white;
+	background-color: rgba(53, 75, 121, 0.591);
+	border-style:none;
+	font-size: 15px;
+	font-family: inherit;
+	border-radius: 5px;
+	top:85%;
+	left:60%;
+}
+#create_new_submit:hover{
+	background-color: rgba(68, 96, 155, 0.591);
 }
 #create_new_actual_form{
+	top:15px;
 	margin:10px;
 }
 #create_new_cancel{
-	position: absolute;
-    top: 2%;
-    left: 90%;
-    border-radius: 100%;
-    width: 20px;
-    height: 20px;
+	height:40px;
+	width:120px;
+	position:absolute;
+	color:white;
+	background-color: rgba(53, 75, 121, 0.591);
+	border-style:none;
+	font-size: 15px;
+	font-family: inherit;
+	border-radius: 5px;
+	top:85%;
+	left:24%;
+}
+#create_new_cancel:hover{
+	background-color: rgba(68, 96, 155, 0.591);
 }
 #btn-update{
 
@@ -187,8 +207,8 @@ button.button {
 }
 #btn-delete{
 	position:absolute;
-top:58px;
-left: 58px;
+	left:60%;
+	top:106px;
 }
 #res_wrapper{
 	visibility:visible;
@@ -205,6 +225,9 @@ left: 58px;
 	background-color: rgba(73, 84, 96, 0.488);
 	margin:2px;
 	box-shadow: 3px 3px 3px 1px  rgb(48, 48, 48);
+}
+.reservation:hover{
+	background-color:rgba(102, 117, 133, 0.488);
 }
 .res_checked_in{
 height:40px;
@@ -383,6 +406,9 @@ line-height:65px;
 	font-family: inherit;
 	border-radius: 5px;
 }
+.res_detail_btn:hover{
+	background-color: rgba(68, 96, 155, 0.591);
+}
 #cancel{
 
 	top:616px;
@@ -395,21 +421,34 @@ line-height:65px;
 }
 #delete_res{
 	visibility: hidden;
+
 	position:fixed;
 	text-align: center;
 	left:50%;
 	top:50%;
 	transform: translate(-50%,-50%);
 	z-index: 5;
-	height:70px;
-	width:150px;
-	border-color:white;
-	border-style: solid;
-	padding:5px;
+	height:155px;
+	width:350px;
+	color:white;
+	  background-color: rgba(124, 134, 145, 0.788);
+	  display: flex;
+	  justify-content: center;
+	  z-index: 5;
+		box-shadow: 0px 0px 5px 3px  rgba(26, 130, 242, 0.646);
+		border-radius:10px;
 
 }
 #delete_res.active{
 	visibility: visible;
+}
+#delete_search{
+	margin:10px;
+}
+#delete_cancel{
+
+	top:69%;
+left: 85px;
 }
 
 #checkin_search{
@@ -421,10 +460,10 @@ line-height:65px;
 	top:50%;
 	transform: translate(-50%,-50%);
 	z-index: 5;
-	height:80px;
-	width:140px;
+	height:145px;
+	width:350px;
 	color:white;
-	  background-color: rgba(73, 84, 96, 0.488);
+	  background-color: rgba(124, 134, 145, 0.788);
 	  display: flex;
 	  justify-content: center;
 	  z-index: 5;
@@ -436,11 +475,13 @@ line-height:65px;
 }
 #checkin_cancel{
 	position:absolute;
-	left:15px;
+	left:83px;
+	margin:6px;
 }
 #checkin_go{
 	position:absolute;
-	left:73px;
+	left:59%;
+	margin:6px;
 }
 #res_number{
 	width:275px;
@@ -457,11 +498,11 @@ border-radius: 10px;
 
 }
 .createinput{
-	width:200px;
-	height:15px;
+	width:300px;
+	height:30px;
 	margin:5px;
-	background-color: rgba(216, 216, 216, 0);
-	color:white;
+	color:black;
+	font-size: 15px;
 }
 
 

@@ -9,6 +9,7 @@
 		crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
 		<div class="navbar">
@@ -69,7 +70,7 @@
 		<input type='text' class='createinput' id='first_name_create' placeholder="First Name"><br>
 		<input type='text' class='createinput' id='last_name_create' placeholder="Last Name"><br>
 		<input type='text' class='createinput' id='phone_number_create' placeholder="Phone Number"><br>
-		Additional Attendees:<br>
+		Additional Attendees:<br><br>
 		<select id='attendees'>
 			<option value='0'>0</option>
 			<option value='1'>1</option>
@@ -78,7 +79,7 @@
 			<option value='4'>4</option>
 			<option value='5'>5</option>
 		</select><br><br>
-		<input type='text' class='createinput' id='additional_notes' placeholder="Additional Notes/Special Requests (optional)"><br><br>
+		<input type='text' class='createinput' id='additional_notes' placeholder="Additional Notes/Special Requests (optional)">
 		Checked In:<br>
 		<select id='checked_in'>
 			<option value='No'>No</option>
@@ -86,7 +87,7 @@
 		</select><br>
 		<!-- <button id="btn-update" type="button">Update</button> -->
 		<button type='submit' id="create_new_submit">Create Reservation</button>
-		<button id="create_new_cancel">X</button>
+		<button id="create_new_cancel">Cancel</button>
 
 	</form>
 </div>
@@ -101,7 +102,7 @@
 	</div>
 </div>
 <!-- rememebr to alphabatize somehow -->
-<div id='reservation_details'>
+<div id='reservation_details' class='slideLeft'>
 	<div id="res_detail_name"></div>
 	<div id='res_number'></div>
 	<!-- <div id="res_attenendants"></div> -->
@@ -115,20 +116,20 @@
 
 <div id='delete_res'>
 	<form id='delete_search'>
-		<input type='text' id='delete_firstName' placeholder="First Name"><br>
-		<input type='text' id='delete_lastName' placeholder="Last Name"><br>
-		<button class="button" id="btn-delete" type="button">Delete</button>
-		<button class="button" id="delete_cancel" type="button">Cancel</button>
+		<input type='text' id='delete_firstName' class="createinput" placeholder="First Name"><br>
+		<input type='text' id='delete_lastName' class="createinput" placeholder="Last Name"><br>
+		<button class="res_detail_btn" id="btn-delete" type="button">Delete</button>
+		<button class="res_detail_btn" id="delete_cancel" type="button">Cancel</button>
 
 	</form>
 </div>
 
 <div id='checkin_search'>
 	<form id="checkin_form">
-		<input type='text' id='checkin_firstName' placeholder="First Name"><br>
-		<input type='text' id='checkin_lastName' placeholder="Last Name"><br>
-		<button class="button" id="checkin_go" type="button">Search</button>
-		<button class="button" id="checkin_cancel" type="button">Cancel</button>
+		<input type='text' id='checkin_firstName' class="createinput" placeholder="First Name"><br>
+		<input type='text' id='checkin_lastName' class="createinput" placeholder="Last Name"><br>
+		<button class="res_detail_btn" id="checkin_go" type="button">Search</button>
+		<button class="res_detail_btn" id="checkin_cancel" type="button">Cancel</button>
 	</form>
 </div>
 
